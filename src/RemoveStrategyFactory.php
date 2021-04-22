@@ -14,7 +14,13 @@ final class RemoveStrategyFactory
     {
         /** @var FeatureRepository $featureRepository */
         $featureRepository = $container->get(FeatureRepository::class);
+        return self::create(
+            $featureRepository
+        );
+    }
 
+    public static function create(FeatureRepository $featureRepository): RemoveStrategy
+    {
         return new RemoveStrategy($featureRepository);
     }
 }
