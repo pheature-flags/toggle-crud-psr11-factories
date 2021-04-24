@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Pheature\Crud\Psr11\Toggle;
 
 use Doctrine\DBAL\Connection;
+use InvalidArgumentException;
 use Pheature\Core\Toggle\Read\FeatureFinder;
 use Pheature\Dbal\Toggle\Read\DbalFeatureFactory;
 use Pheature\Dbal\Toggle\Read\DbalFeatureFinder;
@@ -19,6 +20,15 @@ final class FeatureFinderFactory
     {
         /** @var ToggleConfig $config */
         $config = $container->get(ToggleConfig::class);
+        /** @var ?Connection $connection */
+        $connection = $container->get(Connection::class);
+
+        return self::create($config, $connection);
+    }
+
+    public static function create(ToggleConfig $config, ?Connection $connection): FeatureFinder
+    {
+
         $driver = $config->driver();
 
         if ('inmemory' === $driver) {
@@ -30,10 +40,9 @@ final class FeatureFinderFactory
 
         if ('dbal' === $driver) {
             /** @var Connection $connection */
-            $connection = $container->get(Connection::class);
             return new DbalFeatureFinder($connection, new DbalFeatureFactory());
         }
 
-        throw new \InvalidArgumentException('Valid driver required');
+        throw new InvalidArgumentException('Valid driver required');
     }
 }
