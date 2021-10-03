@@ -101,4 +101,72 @@ final class ToggleConfigTest extends TestCase
         $this->assertSame($expectedDriver, $toggleConfig->driver());
         $this->assertSame($expectedDriverOptions, $toggleConfig->driverOptions());
     }
+
+    public function wrongApiConfigurationProvider(): Generator
+    {
+        yield 'api_enabled key does not exist' => [
+           PheatureFlagsConfig::createDefault()
+            ->withoutKey('api_enabled')
+            ->build()
+        ];
+
+        yield 'api_enabled is not boolean' => [
+            PheatureFlagsConfig::createDefault()
+                ->with('api_enabled', 'wrong_value')
+                ->build()
+        ];
+
+        yield 'api_prefix key does not exist' => [
+            PheatureFlagsConfig::createDefault()
+                ->withoutKey('api_prefix')
+                ->build()
+        ];
+
+        yield 'api_prefix is not string' => [
+            PheatureFlagsConfig::createDefault()
+                ->with('api_prefix', true)
+                ->build()
+        ];
+    }
+
+    /** @dataProvider wrongApiConfigurationProvider */
+    public function testItThrowsExceptionIfWrongApiConfiguration(array $config): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        new ToggleConfig($config);
+    }
+
+    public function testItThrowsExceptionIfWrongStrategyTypesConfiguration(): void
+    {
+        $config = PheatureFlagsConfig::createDefault()
+            ->with('strategy_types', 'non_array_value')
+            ->build();
+
+        $this->expectException(InvalidArgumentException::class);
+
+        new ToggleConfig($config);
+    }
+
+    public function testItThrowsExceptionIfWrongSegmentTypesConfiguration(): void
+    {
+        $config = PheatureFlagsConfig::createDefault()
+            ->with('segment_types', 'non_array_value')
+            ->build();
+
+        $this->expectException(InvalidArgumentException::class);
+
+        new ToggleConfig($config);
+    }
+
+    public function testItThrowsExceptionIfWrongTogglesConfiguration(): void
+    {
+        $config = PheatureFlagsConfig::createDefault()
+            ->with('toggles', 'non_array_value')
+            ->build();
+
+        $this->expectException(InvalidArgumentException::class);
+
+        new ToggleConfig($config);
+    }
 }
