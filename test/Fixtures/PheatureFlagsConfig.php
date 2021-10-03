@@ -66,6 +66,20 @@ final class PheatureFlagsConfig
         return $this;
     }
 
+    public function withDriver(string $driver): self
+    {
+        $this->config['driver'] = $driver;
+
+        return $this;
+    }
+
+    public function withDriverOptions(array $driverOptions): self
+    {
+        $this->config['driver_options'] = $driverOptions;
+
+        return $this;
+    }
+
     public function build(): array
     {
         return $this->config;

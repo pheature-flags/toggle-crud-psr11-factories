@@ -10,12 +10,20 @@ final class ToggleConfig
 {
     public const DRIVER_IN_MEMORY = 'inmemory';
     public const DRIVER_DBAL = 'dbal';
+    public const DRIVER_CHAIN = 'chain';
     private const VALID_DRIVERS = [
+        self::DRIVER_IN_MEMORY,
+        self::DRIVER_DBAL,
+        self::DRIVER_CHAIN,
+    ];
+    private const VALID_DRIVER_OPTIONS = [
         self::DRIVER_IN_MEMORY,
         self::DRIVER_DBAL,
     ];
 
     private string $driver;
+    /** @var array<string> */
+    private $driverOptions;
     private bool $apiEnabled;
     private string $apiPrefix;
     /** @var array<array<string, string>> */
@@ -38,7 +46,12 @@ final class ToggleConfig
 
         $this->apiEnabled = $config['api_enabled'];
         $this->apiPrefix = $config['api_prefix'];
+
         $this->driver = (string) $config['driver'];
+        /** @var array<string> $driverOptions */
+        $driverOptions = $config['driver_options'] ?? [];
+        $this->driverOptions = $driverOptions;
+
         $this->strategyTypes = [];
         $this->segmentTypes = [];
         $this->toggles = [];
@@ -74,6 +87,13 @@ final class ToggleConfig
         Assert::keyExists($config, 'driver');
         Assert::string($config['driver']);
         Assert::inArray($config['driver'], self::VALID_DRIVERS);
+
+        if (self::DRIVER_CHAIN === $config['driver']) {
+            Assert::keyExists($config, 'driver_options');
+            Assert::isArray($config['driver_options']);
+            Assert::notEmpty($config['driver_options']);
+            Assert::allInArray($config['driver_options'], self::VALID_DRIVER_OPTIONS);
+        }
     }
 
     public function apiEnabled(): bool
@@ -89,6 +109,14 @@ final class ToggleConfig
     public function driver(): string
     {
         return $this->driver;
+    }
+
+    /**
+     * @return array<string>
+     */
+    public function driverOptions(): array
+    {
+        return $this->driverOptions;
     }
 
     /**
