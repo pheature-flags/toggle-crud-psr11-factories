@@ -8,7 +8,7 @@ use Generator;
 use Pheature\Crud\Psr11\Toggle\ToggleConfig;
 use Pheature\Test\Crud\Psr11\Toggle\Fixtures\PheatureFlagsConfig;
 use PHPUnit\Framework\TestCase;
-use Webmozart\Assert\InvalidArgumentException;
+use InvalidArgumentException;
 
 final class ToggleConfigTest extends TestCase
 {
@@ -165,6 +165,31 @@ final class ToggleConfigTest extends TestCase
             ->with('toggles', 'non_array_value')
             ->build();
 
+        $this->expectException(InvalidArgumentException::class);
+
+        new ToggleConfig($config);
+    }
+
+    public function driverOptionsForNoChainDriverProvider(): Generator
+    {
+        yield 'inmemory' => [
+            PheatureFlagsConfig::createDefault()
+                ->withDriver('inmemory')
+                ->withDriverOptions(['inmemory', 'dbal'])
+                ->build()
+        ];
+
+        yield 'dbal' => [
+            PheatureFlagsConfig::createDefault()
+                ->withDriver('dbal')
+                ->withDriverOptions(['inmemory', 'dbal'])
+                ->build()
+        ];
+    }
+
+    /** @dataProvider driverOptionsForNoChainDriverProvider */
+    public function testItThrowsExceptionIfDriverOptionsAreDefinedWithNoChainDriver(array $config): void
+    {
         $this->expectException(InvalidArgumentException::class);
 
         new ToggleConfig($config);
