@@ -80,6 +80,25 @@ final class PheatureFlagsConfig
         return $this;
     }
 
+    public function withoutKey(string $configKey): self
+    {
+        unset($this->config[$configKey]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $configKey
+     * @param mixed $value
+     * @return $this
+     */
+    public function with(string $configKey, $value): self
+    {
+        $this->config[$configKey] = $value;
+
+        return $this;
+    }
+
     public function build(): array
     {
         return $this->config;
