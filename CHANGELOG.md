@@ -11,6 +11,7 @@
 
 **Merged pull requests:**
 
+- \[\#7\] update pheature flags deps to ^0.2 [\#8](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/8) (@kpicaza)
 - Update infection/infection requirement from ^0.23.0 to ^0.23.0 || ^0.25.0 [\#2](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/2) (@dependabot[bot])
 
 ## [v0.1.2](https://github.com/pheature-flags/pheature-flags/tree/v0.1.2)
