@@ -1,5 +1,18 @@
 # Changelog
 
+## [Unreleased](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/HEAD)
+
+[Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/v0.1.2...HEAD)
+
+**Implemented enhancements:**
+
+- \[toggle-crud-psr11-factories\] Add  new `chain` driver option in the ToggleConfig [\#3](https://github.com/pheature-flags/toggle-crud-psr11-factories/issues/3)
+- \[\#3\]\[toggle-crud-psr11-factories\] Add new chain driver option in the ToggleConfig [\#6](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/6) (@xserrat)
+
+**Merged pull requests:**
+
+- Update infection/infection requirement from ^0.23.0 to ^0.23.0 || ^0.25.0 [\#2](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/2) (@dependabot[bot])
+
 ## [v0.1.2](https://github.com/pheature-flags/pheature-flags/tree/v0.1.2)
 
 [Full Changelog](https://github.com/pheature-flags/pheature-flags/compare/v0.1.1...v0.1.2)
