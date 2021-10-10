@@ -102,12 +102,6 @@ final class ToggleConfig
             Assert::isArray($config['driver_options']);
             Assert::notEmpty($config['driver_options']);
             Assert::allInArray($config['driver_options'], self::VALID_DRIVER_OPTIONS);
-
-            return;
-        }
-
-        if (array_key_exists('driver_options', $config)) {
-            throw new \InvalidArgumentException('"driver_options" is only allowed for "chain" driver');
         }
     }
 
