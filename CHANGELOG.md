@@ -1,6 +1,16 @@
 # Changelog
 
-## [0.2.1](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.2.1)
+## [0.2.2](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.2.2)
+
+[Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/0.2.1...0.2.2)
+
+**Implemented enhancements:**
+
+- Refactor FeatureRepositoryFactory to build the ChainFeatureRepository [\#12](https://github.com/pheature-flags/toggle-crud-psr11-factories/issues/12)
+- \[\#12\] support ChainFeatureRepository [\#13](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/13) (@kpicaza)
+- \[\#4\] allow creating chain feature finder [\#11](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/11) (@kpicaza)
+
+## [0.2.1](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.2.1) (2021-10-10)
 
 [Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/0.2.0...0.2.1)
 
