@@ -1,8 +1,21 @@
 # Changelog
 
-## [Unreleased](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/HEAD)
+## [0.2.1](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.2.1)
 
-[Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/v0.1.2...HEAD)
+[Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/0.2.0...0.2.1)
+
+**Implemented enhancements:**
+
+- Bump pheature-flags to ^0.2 [\#7](https://github.com/pheature-flags/toggle-crud-psr11-factories/issues/7)
+
+**Fixed bugs:**
+
+- \[BUG\] The controller for URI "/" is not callable: "driver\_options" is only allowed for "chain" driver [\#9](https://github.com/pheature-flags/toggle-crud-psr11-factories/issues/9)
+- \[\#9\] do not throw exception if chain driver options are present [\#10](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/10) (@kpicaza)
+
+## [0.2.0](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.2.0) (2021-10-09)
+
+[Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/v0.1.2...0.2.0)
 
 **Implemented enhancements:**
 
