@@ -186,12 +186,4 @@ final class ToggleConfigTest extends TestCase
                 ->build()
         ];
     }
-
-    /** @dataProvider driverOptionsForNoChainDriverProvider */
-    public function testItThrowsExceptionIfDriverOptionsAreDefinedWithNoChainDriver(array $config): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        new ToggleConfig($config);
-    }
 }
