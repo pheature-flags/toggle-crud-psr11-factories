@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Pheature\Test\Crud\Psr11\Toggle;
 
+use ArrayObject;
 use InvalidArgumentException;
 use Pheature\Crud\Psr11\Toggle\ToggleConfigFactory;
 use Pheature\Crud\Psr11\Toggle\ToggleConfig;
@@ -80,6 +81,19 @@ final class ToggleConfigFactoryTest extends TestCase
             ->method('get')
             ->with('config')
             ->willReturn(self::DEFAULT_CONFIG);
+
+        $actual = (new ToggleConfigFactory())->__invoke($container);
+
+        self::assertInstanceOf(ToggleConfig::class, $actual);
+    }
+
+    public function testItConvertsArrayObjectToPlainArrayWhenRetrievingTheConfig(): void
+    {
+        $container = $this->createMock(ContainerInterface::class);
+        $container->expects(self::once())
+            ->method('get')
+            ->with('config')
+            ->willReturn(new ArrayObject(self::DEFAULT_CONFIG));
 
         $actual = (new ToggleConfigFactory())->__invoke($container);
 
