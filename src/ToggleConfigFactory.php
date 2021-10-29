@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Pheature\Crud\Psr11\Toggle;
 
+use ArrayObject;
 use Psr\Container\ContainerInterface;
 use Webmozart\Assert\Assert;
 
@@ -15,6 +16,10 @@ final class ToggleConfigFactory
     {
         /** @var array<string, mixed>|mixed $config */
         $config = $container->get('config');
+        if ($config instanceof ArrayObject) {
+            $config = $config->getArrayCopy();
+        }
+
         Assert::isArray($config);
         Assert::keyExists($config, 'pheature_flags', self::MISSING_CONFIG);
         Assert::isArray($config['pheature_flags'], self::MISSING_CONFIG);
