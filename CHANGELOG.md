@@ -1,5 +1,18 @@
 # Changelog
 
+## [v0.2.3](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/v0.2.3) (2021-10-30)
+
+[Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/0.2.2...v0.2.3)
+
+**Implemented enhancements:**
+
+- \[toggle-crud-psr11-factories\] Refactor `FeatureFinderFactory` to build the `ChainFeatureFinder` [\#4](https://github.com/pheature-flags/toggle-crud-psr11-factories/issues/4)
+
+**Fixed bugs:**
+
+- Using "laminas/laminas-auradi-config" the config returned it's an ArrayObject and it's expected an array [\#15](https://github.com/pheature-flags/toggle-crud-psr11-factories/issues/15)
+- \[\#15\] Convert ArrayObject from container config to a plain array [\#16](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/16) (@xserrat)
+
 ## [0.2.2](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.2.2)
 
 [Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/0.2.1...0.2.2)
