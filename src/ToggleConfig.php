@@ -43,11 +43,12 @@ final class ToggleConfig
         Assert::boolean($config['api_enabled']);
         Assert::keyExists($config, 'api_prefix');
         Assert::string($config['api_prefix']);
+        Assert::keyExists($config, 'driver');
+        Assert::string($config['driver']);
 
         $this->apiEnabled = $config['api_enabled'];
         $this->apiPrefix = $config['api_prefix'];
-
-        $this->driver = (string) $config['driver'];
+        $this->driver = $config['driver'];
         /** @var array<string> $driverOptions */
         $driverOptions = $config['driver_options'] ?? [];
         $this->driverOptions = $driverOptions;

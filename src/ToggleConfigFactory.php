@@ -14,13 +14,12 @@ final class ToggleConfigFactory
 
     public function __invoke(ContainerInterface $container): ToggleConfig
     {
-        /** @var array<string, mixed>|mixed $config */
+        /** @var array<string, mixed>|ArrayObject<string, mixed> $config */
         $config = $container->get('config');
         if ($config instanceof ArrayObject) {
             $config = $config->getArrayCopy();
         }
 
-        Assert::isArray($config);
         Assert::keyExists($config, 'pheature_flags', self::MISSING_CONFIG);
         Assert::isArray($config['pheature_flags'], self::MISSING_CONFIG);
 
