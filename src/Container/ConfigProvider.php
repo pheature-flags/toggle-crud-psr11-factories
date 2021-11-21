@@ -15,11 +15,12 @@ use Pheature\Crud\Psr11\Toggle\ToggleConfigFactory;
 use Pheature\Crud\Psr11\Toggle\ToggleConfig;
 use Pheature\Crud\Psr11\Toggle\ToggleFactory;
 
+/**
+ * @psalm-type CrudPsr11Config array{dependencies: array{factories: array<string, string>}}
+ */
 final class ConfigProvider
 {
-    /**
-     * @return array<string, array<string, array<string, string>>>
-     */
+    /** @return CrudPsr11Config */
     public function __invoke(): array
     {
         return [
