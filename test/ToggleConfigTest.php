@@ -103,8 +103,7 @@ final class ToggleConfigTest extends TestCase
         array  $config,
         string $expectedDriver,
         array  $expectedDriverOptions
-    ): void
-    {
+    ): void {
         $toggleConfig = new ToggleConfig($config);
 
         $this->assertSame($expectedDriver, $toggleConfig->driver());
