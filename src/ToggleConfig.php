@@ -6,6 +6,21 @@ namespace Pheature\Crud\Psr11\Toggle;
 
 use Webmozart\Assert\Assert;
 
+/**
+ * @psalm-import-type WriteFeature from \Pheature\Core\Toggle\Write\Feature
+ * @psalm-import-type InMemoryFeature from \Pheature\InMemory\Toggle\InMemoryConfig
+ * @psalm-type StrategyTypeFactoryConfig array<array{type: string, factory_id: string}>
+ * @psalm-type SegmentTypeFactoryConfig array<array{type: string, factory_id: string}>
+ * @psalm-type ToggleConfigOptions array{
+ *   api_enabled: bool,
+ *   api_prefix: string,
+ *   driver: string,
+ *   driver_options?: array<string>,
+ *   strategy_types?: StrategyTypeFactoryConfig,
+ *   segment_types?: SegmentTypeFactoryConfig,
+ *   toggles?: array<InMemoryFeature>
+ * }
+ */
 final class ToggleConfig
 {
     public const DRIVER_IN_MEMORY = 'inmemory';
@@ -26,11 +41,11 @@ final class ToggleConfig
     private $driverOptions;
     private bool $apiEnabled;
     private string $apiPrefix;
-    /** @var array<array<string, string>> */
+    /** @var StrategyTypeFactoryConfig */
     private array $strategyTypes;
-    /** @var array<array<string, string>> */
+    /** @var SegmentTypeFactoryConfig */
     private array $segmentTypes;
-    /** @var array<string, mixed> */
+    /** @var array<InMemoryFeature> */
     private array $toggles;
 
     /**
@@ -59,21 +74,21 @@ final class ToggleConfig
 
         if (array_key_exists('strategy_types', $config)) {
             Assert::isArray($config['strategy_types']);
-            /** @var array<array<string, string>> $strategyTypes */
+            /** @var array<array{type: string, factory_id: string}> $strategyTypes */
             $strategyTypes = $config['strategy_types'];
             $this->strategyTypes = $strategyTypes;
         }
 
         if (array_key_exists('segment_types', $config)) {
             Assert::isArray($config['segment_types']);
-            /** @var array<array<string, string>> $segmentTypes */
+            /** @var array<array{type: string, factory_id: string}> $segmentTypes */
             $segmentTypes = $config['segment_types'];
             $this->segmentTypes = $segmentTypes;
         }
 
         if (array_key_exists('toggles', $config)) {
             Assert::isArray($config['toggles']);
-            /** @var array<string, mixed> $toggles */
+            /** @var array<InMemoryFeature> $toggles */
             $toggles = $config['toggles'];
             $this->toggles = $toggles;
         }
@@ -129,25 +144,19 @@ final class ToggleConfig
         return $this->driverOptions;
     }
 
-    /**
-     * @return array<array<string, string>>
-     */
+    /** @return StrategyTypeFactoryConfig */
     public function strategyTypes(): array
     {
         return $this->strategyTypes;
     }
 
-    /**
-     * @return array<array<string, string>>
-     */
+    /** @return SegmentTypeFactoryConfig */
     public function segmentTypes(): array
     {
         return $this->segmentTypes;
     }
 
-    /**
-     * @return array<string, mixed>
-     */
+    /** @return array<InMemoryFeature> */
     public function toggles(): array
     {
         return $this->toggles;

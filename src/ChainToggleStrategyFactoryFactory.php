@@ -21,7 +21,7 @@ class ChainToggleStrategyFactoryFactory
         return self::create(
             $segmentFactory,
             ...array_map(
-                function (array $strategyType) use ($container) {
+                static function (array $strategyType) use ($container) {
                     /** @var ToggleStrategyFactory $toggleStrategyFactory */
                     $toggleStrategyFactory = $container->get($strategyType['type']);
 
