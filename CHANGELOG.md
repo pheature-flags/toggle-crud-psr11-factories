@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.3.0](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.3.0) (2021-11-21)
+
+[Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/v0.2.3...0.3.0)
+
+**Implemented enhancements:**
+
+- \[toggle-crud-psr11-factories\] Update PhpStan to version 1 and level 9 [\#18](https://github.com/pheature-flags/toggle-crud-psr11-factories/issues/18)
+- \[toggle-crud-psr11-factories\] Add PHP 8.1 support [\#14](https://github.com/pheature-flags/toggle-crud-psr11-factories/issues/14)
+- \[\#14\] Add support for PHP 8.1 [\#22](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/22) (@kpicaza)
+- \[\#18\] Update PhpStan to version 1 and level 9 [\#19](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/19) (@kpicaza)
+
+**Closed issues:**
+
+- \[toggle-crud-psr11-factories\] update CI matrix PHP versions [\#20](https://github.com/pheature-flags/toggle-crud-psr11-factories/issues/20)
+
+**Merged pull requests:**
+
+- \[\#20\] Run CI both PHP 7.4 and 8.0 [\#21](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/21) (@kpicaza)
+
 ## [v0.2.3](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/v0.2.3) (2021-10-30)
 
 [Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/0.2.2...v0.2.3)
@@ -13,7 +32,7 @@
 - Using "laminas/laminas-auradi-config" the config returned it's an ArrayObject and it's expected an array [\#15](https://github.com/pheature-flags/toggle-crud-psr11-factories/issues/15)
 - \[\#15\] Convert ArrayObject from container config to a plain array [\#16](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/16) (@xserrat)
 
-## [0.2.2](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.2.2)
+## [0.2.2](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.2.2) (2021-10-10)
 
 [Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/0.2.1...0.2.2)
 
