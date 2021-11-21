@@ -58,12 +58,12 @@ final class ToggleConfig
         Assert::boolean($config['api_enabled']);
         Assert::keyExists($config, 'api_prefix');
         Assert::string($config['api_prefix']);
-        Assert::keyExists($config, 'driver');
-        Assert::string($config['driver']);
 
         $this->apiEnabled = $config['api_enabled'];
         $this->apiPrefix = $config['api_prefix'];
-        $this->driver = $config['driver'];
+        /** @var string $driver */
+        $driver = $config['driver'];
+        $this->driver = $driver;
         /** @var array<string> $driverOptions */
         $driverOptions = $config['driver_options'] ?? [];
         $this->driverOptions = $driverOptions;
@@ -101,7 +101,6 @@ final class ToggleConfig
     private function assertDriver(array $config): void
     {
         Assert::keyExists($config, 'driver');
-        Assert::string($config['driver']);
         Assert::inArray($config['driver'], self::VALID_DRIVERS);
 
         $this->assertDriverOptions($config);
@@ -115,7 +114,6 @@ final class ToggleConfig
     {
         if (self::DRIVER_CHAIN === $config['driver']) {
             Assert::keyExists($config, 'driver_options');
-            Assert::isArray($config['driver_options']);
             Assert::notEmpty($config['driver_options']);
             Assert::allInArray($config['driver_options'], self::VALID_DRIVER_OPTIONS);
         }

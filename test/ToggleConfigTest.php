@@ -23,6 +23,14 @@ final class ToggleConfigTest extends TestCase
         new ToggleConfig($config);
     }
 
+    /** @dataProvider invalidDriverOptions */
+    public function testItThrowsExceptionWhenDriverIsPresentInConfig(array $config): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        new ToggleConfig($config);
+    }
+
     public function wrongDriverOptionsDataProvider(): Generator
     {
         yield 'empty driver_options' => [
@@ -92,10 +100,11 @@ final class ToggleConfigTest extends TestCase
 
     /** @dataProvider validDriversProvider */
     public function testItIsCreatedWithValidDrivers(
-        array $config,
+        array  $config,
         string $expectedDriver,
-        array $expectedDriverOptions
-    ): void {
+        array  $expectedDriverOptions
+    ): void
+    {
         $toggleConfig = new ToggleConfig($config);
 
         $this->assertSame($expectedDriver, $toggleConfig->driver());
@@ -105,9 +114,9 @@ final class ToggleConfigTest extends TestCase
     public function wrongApiConfigurationProvider(): Generator
     {
         yield 'api_enabled key does not exist' => [
-           PheatureFlagsConfig::createDefault()
-            ->withoutKey('api_enabled')
-            ->build()
+            PheatureFlagsConfig::createDefault()
+                ->withoutKey('api_enabled')
+                ->build()
         ];
 
         yield 'api_enabled is not boolean' => [
@@ -184,6 +193,53 @@ final class ToggleConfigTest extends TestCase
                 ->withDriver('dbal')
                 ->withDriverOptions(['inmemory', 'dbal'])
                 ->build()
+        ];
+    }
+
+    public function invalidDriverOptions(): Generator
+    {
+        yield 'Null driver' => [
+            [
+                'driver' => null,
+                'api_prefix' => '',
+                'api_enabled' => false,
+                'segment_types' => [],
+                'strategy_types' => [],
+                'toggles' => [],
+            ]
+        ];
+
+        yield 'Invalid Chain driver empty options key' => [
+            [
+                'driver' => 'chain',
+                'api_prefix' => '',
+                'api_enabled' => false,
+                'segment_types' => [],
+                'strategy_types' => [],
+                'toggles' => [],
+            ]
+        ];
+
+        yield 'Invalid Chain driver null options' => [
+            [
+                'driver' => 'chain',
+                'driver_options' => null,
+                'api_prefix' => '',
+                'api_enabled' => false,
+                'segment_types' => [],
+                'strategy_types' => [],
+                'toggles' => [],
+            ]
+        ];
+
+        yield 'Empty driver key' => [
+            [
+                'api_prefix' => '',
+                'api_enabled' => false,
+                'segment_types' => [],
+                'strategy_types' => [],
+                'toggles' => [],
+            ]
         ];
     }
 }
