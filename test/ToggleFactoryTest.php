@@ -31,6 +31,6 @@ final class ToggleFactoryTest extends TestCase
         $featureFinder = $this->createMock(FeatureFinder::class);
 
         $toggle = ToggleFactory::create($featureFinder);
-        self::assertInstanceOf(Toggle::class, $toggle);
+        $this->assertInstanceOf(Toggle::class, $toggle);
     }
 }
