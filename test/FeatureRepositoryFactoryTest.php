@@ -48,7 +48,7 @@ class FeatureRepositoryFactoryTest extends TestCase
         $featureRepositoryFactory = new FeatureRepositoryFactory();
 
         $repository = $featureRepositoryFactory->__invoke($container);
-        self::assertInstanceOf(DbalFeatureRepository::class, $repository);
+        $this->assertInstanceOf(DbalFeatureRepository::class, $repository);
     }
 
     public function testItShouldCreateAnInMemoryFeatureRepositoryFromInvokable(): void
@@ -64,7 +64,7 @@ class FeatureRepositoryFactoryTest extends TestCase
         $featureRepositoryFactory = new FeatureRepositoryFactory();
 
         $repository = $featureRepositoryFactory->__invoke($container);
-        self::assertInstanceOf(InMemoryFeatureRepository::class, $repository);
+        $this->assertInstanceOf(InMemoryFeatureRepository::class, $repository);
     }
 
     public function testItShouldCreateAChainFeatureRepositoryFromInvokable(): void
@@ -81,7 +81,7 @@ class FeatureRepositoryFactoryTest extends TestCase
         $featureRepositoryFactory = new FeatureRepositoryFactory();
 
         $repository = $featureRepositoryFactory->__invoke($container);
-        self::assertInstanceOf(ChainFeatureRepository::class, $repository);
+        $this->assertInstanceOf(ChainFeatureRepository::class, $repository);
     }
 
     public function testItShouldCreateADBalFeatureRepositoryFromCreate(): void
@@ -89,7 +89,7 @@ class FeatureRepositoryFactoryTest extends TestCase
         $toggleConfig = new ToggleConfig(['api_enabled' => false, 'api_prefix' => '', 'driver' => 'dbal']);
         $connection = $this->createMock(Connection::class);
         $featureRepository = FeatureRepositoryFactory::create($toggleConfig, $connection);
-        self::assertInstanceOf(FeatureRepository::class, $featureRepository);
+        $this->assertInstanceOf(FeatureRepository::class, $featureRepository);
     }
 
     public function testItShouldCreateInMemoryFeatureRepositoryFromCreate(): void
@@ -97,6 +97,6 @@ class FeatureRepositoryFactoryTest extends TestCase
         $toggleConfig = new ToggleConfig(['api_enabled' => false, 'api_prefix' => '', 'driver' => 'inmemory']);
         $connection = null;
         $featureRepository = FeatureRepositoryFactory::create($toggleConfig, $connection);
-        self::assertInstanceOf(FeatureRepository::class, $featureRepository);
+        $this->assertInstanceOf(FeatureRepository::class, $featureRepository);
     }
 }

@@ -37,7 +37,7 @@ class ChainToggleStrategyFactoryFactoryTest extends TestCase
 
         $factory = new ChainToggleStrategyFactoryFactory();
         $chainToggleStrategyFactory = $factory->__invoke($container);
-        self::assertInstanceOf(ChainToggleStrategyFactory::class, $chainToggleStrategyFactory);
+        $this->assertInstanceOf(ChainToggleStrategyFactory::class, $chainToggleStrategyFactory);
     }
 
     public function testItShouldCreateInstancesOfChainToggleStrategyFactoryStatically(): void
@@ -46,6 +46,6 @@ class ChainToggleStrategyFactoryFactoryTest extends TestCase
         $strategyFactory = new StrategyFactory();
 
         $chainToggleStrategyFactory = ChainToggleStrategyFactoryFactory::create($segmentFactory, $strategyFactory, $strategyFactory);
-        self::assertInstanceOf(ChainToggleStrategyFactory::class, $chainToggleStrategyFactory);
+        $this->assertInstanceOf(ChainToggleStrategyFactory::class, $chainToggleStrategyFactory);
     }
 }

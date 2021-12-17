@@ -57,7 +57,7 @@ class FeatureFinderFactoryTest extends TestCase
         $featureFinderFactory = new FeatureFinderFactory();
 
         $finder = $featureFinderFactory->__invoke($container);
-        self::assertInstanceOf(DbalFeatureFinder::class, $finder);
+        $this->assertInstanceOf(DbalFeatureFinder::class, $finder);
     }
 
     public function testItShouldCreateAnInMemoryFeatureFinderFromInvokable(): void
@@ -77,7 +77,7 @@ class FeatureFinderFactoryTest extends TestCase
         $featureFinderFactory = new FeatureFinderFactory();
 
         $finder = $featureFinderFactory->__invoke($container);
-        self::assertInstanceOf(InMemoryFeatureFinder::class, $finder);
+        $this->assertInstanceOf(InMemoryFeatureFinder::class, $finder);
     }
 
     public function testItShouldCreateAChainFeatureFinderFromInvokable(): void
@@ -98,7 +98,7 @@ class FeatureFinderFactoryTest extends TestCase
         $featureFinderFactory = new FeatureFinderFactory();
 
         $finder = $featureFinderFactory->__invoke($container);
-        self::assertInstanceOf(ChainFeatureFinder::class, $finder);
+        $this->assertInstanceOf(ChainFeatureFinder::class, $finder);
     }
 
     public function testItShouldCreateADBalFeatureFinderFromCreate(): void
@@ -110,7 +110,7 @@ class FeatureFinderFactoryTest extends TestCase
         );
         $connection = $this->createMock(Connection::class);
         $featureFinder = FeatureFinderFactory::create($toggleConfig, $chainStrategyFactory, $connection);
-        self::assertInstanceOf(FeatureFinder::class, $featureFinder);
+        $this->assertInstanceOf(FeatureFinder::class, $featureFinder);
     }
 
     public function testItShouldThrowExceptionWithInvalidFeatureFinderFromCreate(): void
@@ -137,7 +137,7 @@ class FeatureFinderFactoryTest extends TestCase
         );
         $connection = null;
         $featureFinder = FeatureFinderFactory::create($toggleConfig, $chainStrategyFactory, $connection);
-        self::assertInstanceOf(FeatureFinder::class, $featureFinder);
+        $this->assertInstanceOf(FeatureFinder::class, $featureFinder);
     }
 
     public function testItShouldCreateChainFeatureFinderFromCreate(): void
@@ -149,7 +149,7 @@ class FeatureFinderFactoryTest extends TestCase
         );
         $connection = null;
         $featureFinder = FeatureFinderFactory::create($toggleConfig, $chainStrategyFactory, $connection);
-        self::assertInstanceOf(FeatureFinder::class, $featureFinder);
+        $this->assertInstanceOf(FeatureFinder::class, $featureFinder);
     }
 
 }

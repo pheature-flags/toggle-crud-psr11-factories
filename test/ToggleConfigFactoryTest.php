@@ -84,7 +84,7 @@ final class ToggleConfigFactoryTest extends TestCase
 
         $actual = (new ToggleConfigFactory())->__invoke($container);
 
-        self::assertInstanceOf(ToggleConfig::class, $actual);
+        $this->assertInstanceOf(ToggleConfig::class, $actual);
     }
 
     public function testItConvertsArrayObjectToPlainArrayWhenRetrievingTheConfig(): void
@@ -97,6 +97,6 @@ final class ToggleConfigFactoryTest extends TestCase
 
         $actual = (new ToggleConfigFactory())->__invoke($container);
 
-        self::assertInstanceOf(ToggleConfig::class, $actual);
+        $this->assertInstanceOf(ToggleConfig::class, $actual);
     }
 }
