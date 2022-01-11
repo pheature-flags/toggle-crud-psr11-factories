@@ -22,7 +22,7 @@
     },
     "require-dev": {
         "icanhazstring/composer-unused": "^0.7.5",
-        "infection/infection": "^0.25",
+        "infection/infection": "^0.25 || ^0.26",
         "pheature/dbal-toggle": "^0.3",
         "pheature/inmemory-toggle": "^0.3",
         "pheature/php-sdk": "^0.3",
