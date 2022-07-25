@@ -1,5 +1,19 @@
 # Changelog
 
+## [Unreleased](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/HEAD)
+
+[Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/0.3.0...HEAD)
+
+**Implemented enhancements:**
+
+- \[toggle-crud-psr11-factories\] Update issue template for bugs using new issue form in a YAML file [\#5](https://github.com/pheature-flags/toggle-crud-psr11-factories/issues/5)
+- Be consistency for assertion methods call [\#23](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/23) (@peter279k)
+
+**Merged pull requests:**
+
+- allow executing some composer plugins in dev mode [\#27](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/27) (@kpicaza)
+- \[\#5\] Update Bug Report Template [\#24](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/24) (@pcs289)
+
 ## [0.3.0](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.3.0) (2021-11-21)
 
 [Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/v0.2.3...0.3.0)
