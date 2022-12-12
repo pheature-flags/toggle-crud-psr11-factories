@@ -23,7 +23,7 @@
     "require-dev": {
         "icanhazstring/composer-unused": "^0.8",
         "pheature/dbal-toggle": "^0.5",
-        "pheature/inmemory-toggle": "^0.5",
+        "pheature/inmemory-toggle": "^0.5 || ^0.7",
         "pheature/php-sdk": "^0.5",
         "pheature/toggle-crud": "^0.5",
         "phpcompatibility/php-compatibility": "^9.3",
