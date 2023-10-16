@@ -25,11 +25,13 @@ final class ToggleConfig
 {
     public const DRIVER_IN_MEMORY = 'inmemory';
     public const DRIVER_DBAL = 'dbal';
+    public const ELOQUENT = 'eloquent';
     public const DRIVER_CHAIN = 'chain';
     private const VALID_DRIVERS = [
         self::DRIVER_IN_MEMORY,
         self::DRIVER_DBAL,
         self::DRIVER_CHAIN,
+        self::ELOQUENT,
     ];
     private const VALID_DRIVER_OPTIONS = [
         self::DRIVER_IN_MEMORY,
