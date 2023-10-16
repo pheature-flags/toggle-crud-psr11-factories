@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.7.2](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.7.2)
+
+[Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/0.7.1...0.7.2)
+
+**New Features:**
+
+- Allow installing Laravel Eloquent driver (@kpicaza)
+
 ## [0.7.1](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.7.1)
 
 [Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/0.7.0...0.7.1)
