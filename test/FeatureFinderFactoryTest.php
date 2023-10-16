@@ -21,7 +21,7 @@ class FeatureFinderFactoryTest extends TestCase
     public function testItShouldThrowAnExceptionWhenItCantCreateAFeatureFinder(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Expected one of: "inmemory", "dbal", "chain". Got: "some_other"');
+        $this->expectExceptionMessage('Expected one of: "inmemory", "dbal", "chain", "eloquent". Got: "some_other"');
         $container = $this->createMock(ContainerInterface::class);
         $chainStrategyFactory = new ChainToggleStrategyFactory(
             $this->createMock(SegmentFactory::class),
