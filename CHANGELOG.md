@@ -1,14 +1,23 @@
 # Changelog
 
-## [0.7.2](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.7.2)
+## [0.8.0](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.8.0)
+
+[Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/0.7.2...0.8.0)
+
+**Merged pull requests:**
+
+- update psalm to 5.16 [\#45](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/45) (@kpicaza)
+- update php versions support [\#44](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/44) (@kpicaza)
+
+## [0.7.2](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.7.2) (2023-10-16)
 
 [Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/0.7.1...0.7.2)
 
-**New Features:**
+**Merged pull requests:**
 
-- Allow installing Laravel Eloquent driver (@kpicaza)
+- Accept eloquent as driver [\#43](https://github.com/pheature-flags/toggle-crud-psr11-factories/pull/43) (@kpicaza)
 
-## [0.7.1](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.7.1)
+## [0.7.1](https://github.com/pheature-flags/toggle-crud-psr11-factories/tree/0.7.1) (2022-12-12)
 
 [Full Changelog](https://github.com/pheature-flags/toggle-crud-psr11-factories/compare/0.7.0...0.7.1)
 
